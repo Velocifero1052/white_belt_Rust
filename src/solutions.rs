@@ -90,3 +90,16 @@ pub fn second_occurrence_of_f(){
     }
     print!("{}", found_index)
 }
+
+pub fn gcd(a: i32, b: i32) -> i32{
+    if b == 0{
+        return a;
+    }
+    return gcd(b, a % b)
+}
+
+pub fn convert_to_binary_string(){
+    let mut n:i32;
+    scan!("{}", n);
+    print!("{}", format!("{:b}", n));
+}
