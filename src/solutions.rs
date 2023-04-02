@@ -35,5 +35,58 @@ pub fn so_called_impossible(){
     }
 }
 
+pub fn price_calculations(){
+    let (n, a, b, x, y, mut final_price): (f32, f32, f32, f32, f32, f32);
+    scan!("{} {} {} {} {}", n, a, b, x, y);
+    final_price = n;
+    if n > a && n > b {
+        final_price = n - n * (y / 100.0)
+    }else if n > a && n <= b {
+        final_price = n - n * (x / 100.0)
+    }
+    println!("{}", final_price)
+}
 
+pub fn print_even_numbers(){
+    let (x, y, mut i): (i32, i32, i32);
+    let mut first = true;
+    scan!("{} {}", x, y);
 
+    if x == y && x % 2 == 0 {
+        println!("{}", x);
+        return
+    } else if x % 2 == 0 {
+        i = x;
+    } else {
+        i = x + 1;
+    }
+    while i <= y {
+        if first {
+            print!("{}", i);
+            first = false;
+        } else {
+            print!(" {}", i);
+        }
+        i += 2;
+    }
+}
+
+pub fn second_occurrence_of_f(){
+    let mut word = String::new();
+    let mut found_index = -2;
+    let mut first = true;
+    scan!("{}", word);
+    let mut i:i32 = 0;
+    while i < word.len() as i32{
+        let char = word.as_bytes()[i as usize] as char;
+        if char == 'f' && first {
+            found_index = -1;
+            first = false;
+        }else if char == 'f' && !first {
+            found_index = i;
+            break;
+        }
+        i += 1;
+    }
+    print!("{}", found_index)
+}
