@@ -24,3 +24,16 @@ pub fn square_root_resolver(){
         println!("{}", res)
     }
 }
+
+pub fn so_called_impossible(){
+    let (a, b):(i32, i32);
+    scan!("{} {}", a, b);
+    if b != 0 {
+        println!("{}", a / b)
+    }else{
+        println!("Impossible")
+    }
+}
+
+
+
