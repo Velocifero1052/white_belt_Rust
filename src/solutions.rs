@@ -103,3 +103,44 @@ pub fn convert_to_binary_string(){
     scan!("{}", n);
     print!("{}", format!("{:b}", n));
 }
+
+pub fn lower_than_average(){
+    let mut size_of_vector:i32;
+    scan!("{}", size_of_vector);
+    let mut vec = std::iter::repeat(0).take(size_of_vector as usize).collect::<Vec<_>>();
+
+    let mut i = 0;
+    while i < size_of_vector as i32{
+        let temp: i32;
+        scan!("{}", temp);
+        vec[i as usize] = temp;
+        i += 1;
+    }
+
+    let average = vec.iter().sum::<i32>() / vec.len() as i32;
+    let mut higher_than_average = Vec::new();
+
+    i = 0;
+    while i < size_of_vector as i32{
+        if vec[i as usize] > average{
+            higher_than_average.push(i);
+        }
+        i += 1;
+    }
+
+    println!("{}", higher_than_average.len());
+    let mut first = true;
+    i = 0;
+    while i < higher_than_average.len() as i32{
+
+        if first {
+            print!("{}", higher_than_average[i as usize]);
+            first = false;
+        }else {
+            print!(" {}", higher_than_average[i as usize]);
+        }
+
+        i += 1;
+    }
+
+}
